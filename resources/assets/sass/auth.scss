@@ -1,0 +1,64 @@
+@import "variables.scss";
+
+.auth {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    padding: 80px 0;
+
+    &__form {
+        width: 400px;
+        display: flex;
+        flex-direction: column;
+        padding: 30px 15px;
+        background-color: $white;
+        border: 1px solid $primary-color;
+        border-radius: 8px;
+
+        &__title {
+            color: $primary-color;
+            font-size: $font-size-large;
+            font-weight: 500;
+        }
+
+        &__fields {
+            display: flex;
+            flex-direction: column;
+            padding: 20px 0;
+        }
+
+        &__field {
+            display: flex;
+            align-items: center;
+            width: 100%;
+
+            & + & {
+                margin-top: $default-space;
+            }
+        }
+
+        &__input {
+            color: $primary-color;
+            font-size: $font-size-default;
+            width: 100%;
+            padding: 5px 10px;
+            outline: none;
+            border: 1px solid $blue;
+            border-radius: 8px;
+
+            &:focus {
+                border-width: 2px;
+            }
+        }
+
+        &__error {
+            display: flex;
+            align-items: center;
+            color: $red;
+            margin-top: $default-space;
+        }
+    }
+}

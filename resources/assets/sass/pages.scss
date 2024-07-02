@@ -1,0 +1,295 @@
+@import "variables.scss";
+
+.unauthorized {
+    display: flex;
+    align-items: center;
+    padding: 20px 15px;
+
+    &__text {
+        color: $primary-color;
+        font-size: $font-size-large;
+        font-weight: 500;
+        text-align: center;
+    }
+
+    &__link {
+        color: $darkmagenta;
+    }
+}
+
+.about {
+    display: grid;
+    gap: $default-space;
+    grid-template-areas: 
+        "left-column right-row-top"
+        "left-column right-row-bottom";
+    padding: 40px 0;
+
+    &__item {
+        display: flex;
+        flex-direction: column;
+        padding: 15px;
+        background-color: $item-color;
+
+        &__title {
+            color: $primary-color;
+            font-size: 20px;
+            font-weight: 700;
+        }
+
+        &__text {
+            color: $primary-color;
+            font-size: $font-size-default;
+            margin-top: $default-space;
+            white-space: pre-line;
+        }
+
+        &--left-column {
+            grid-area: left-column;
+        }
+
+        &--right-row-top {
+            grid-area: right-row-top;
+        }
+
+        &--right-row-bottom {
+            grid-area: right-row-bottom;
+        }
+    }
+}
+
+.navigation {
+    display: flex;
+    padding: 40px 0;
+
+    &__link {
+        display: flex;
+        color: $primary-color;
+        font-size: $font-size-large;
+        border-bottom: 2px solid $primary-color;
+        transition: all .2s linear;
+
+        & + & {
+            margin-left: $default-space;
+        }
+
+        &:hover {
+            color: $aquamarine;
+            border-color: $aquamarine;
+        }
+    }
+}
+
+.cabinet {
+    display: flex;
+    flex-direction: column;
+    padding: 20px 15px;
+
+    &__title {
+        color: $primary-color;
+        font-size: $font-size-large;
+        font-weight: 500;
+    }
+
+    &__fields {
+        margin-top: $default-space;
+    }
+
+    &__field {
+        display: flex;
+        align-items: stretch;
+
+        &__title {
+            display: flex;
+            align-items: center;
+            font-size: $font-size-default;
+            color: $primary-color;
+            margin-right: $default-space;
+        }
+
+        &__value {
+            font-size: $font-size-default;
+            color: $primary-color;
+        }
+
+        &__input {
+            padding: 5px 10px;
+            outline: none;
+            border: none;
+            border-bottom: 2px solid $primary-color;
+            font-size: $font-size-default;
+            color: $primary-color;
+            height: 36px;
+            margin-right: $default-space;
+        }
+
+        & + & {
+            margin-top: $default-space;
+        }
+    }
+}
+
+.message {
+    max-width: 320px;
+    color: $white;
+    font-size: $font-size-default;
+    font-weight: 500;
+    background-color: $primary-color;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px 30px;
+    border-radius: 4px;
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: all 1s;
+
+    @keyframes message-animation {
+        0% {
+            opacity: 0;
+            bottom: 15px;
+        }
+        10% {
+            opacity: 1;
+            bottom: 50px;
+        }
+        90% {
+            opacity: 1;
+            bottom: 50px;
+        }
+        100% {
+            opacity: 0;
+            bottom: 15px;
+        }
+    }
+
+    animation-name: message-animation;
+    animation-duration: 3s;
+    animation-direction: alternate-reverse;
+    animation-timing-function: ease-in;
+    animation-delay: 0s;
+
+    &.error {
+        background-color: $red;
+    }
+
+    &.success {
+        background-color: $success;
+    }
+}
+
+.order {
+    &__title {
+        color: $primary-color;
+        font-size: $font-size-large;
+        font-weight: 500;
+        margin-bottom: $default-space;
+    }
+
+    &__text {
+        display: flex;
+        align-items: center;
+        color: $primary-color;
+        font-size: $font-size-default;
+        margin-bottom: $default-space;
+    }
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+        padding: 20px 15px;
+
+        & + & {
+            margin-top: $default-space;
+        }
+    }
+
+    &__action {
+        margin-top: $default-space;
+    }
+
+    &__row {
+        display: flex;
+        align-items: center;
+        position: relative;
+        border-bottom: 2px solid $primary-color;
+
+        &:hover {
+            background-color: $item-color;
+        }
+    }
+
+    &__column {
+        flex: 1;
+        flex-wrap: wrap;
+        color: $primary-color;
+        font-size: $font-size-default;
+        padding: 5px 10px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+
+        & + & {
+            border-left: 2px solid $primary-color;
+        }
+    }
+
+    &__link {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+    }
+
+    &__select {
+        width: 100%;
+        color: $primary-color;
+        font-size: $font-size-default;
+    }
+
+    &__input {
+        width: 100%;
+        color: $primary-color;
+        font-size: $font-size-default;
+    }
+
+    &__textarea {
+        width: 100%;
+        height: 260px;
+        padding: 5px 10px;
+        outline: none;
+        border: 2px solid $primary-color;
+        color: $primary-color;
+        font-size: $font-size-default;
+    }
+
+    &__fields {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__field {
+        display: flex;
+        flex-direction: column;
+
+        &__title {
+            color: $primary-color;
+            font-size: $font-size-default;
+            margin: 0 $default-space $default-space 0;
+        }
+
+        &__value {
+            color: $primary-color;
+            font-size: $font-size-default;
+        }
+
+        & + & {
+            margin-top: $default-space;
+        }
+    }
+}
